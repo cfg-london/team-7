@@ -11,6 +11,7 @@
 
 #map{
   width: 80%;
+<<<<<<< HEAD
   height: 100vh;
   margin: 0 auto;
   vertical-align:top;
@@ -21,6 +22,17 @@ svg{
   display: block;
 }
 
+=======
+  height: 90vh;
+  margin: 0 auto;
+  vertical-align:top;
+}
+
+svg{
+  display: block;
+}
+
+>>>>>>> 6bd6b2feb8feeb8ba322f53f6afcd70c3c102838
 .logo{
   z-index: 99999;
   position: absolute;
@@ -32,7 +44,11 @@ svg{
   background-size: cover;
 }
 
+<<<<<<< HEAD
 .indicators,.ages{
+=======
+.indicators{
+>>>>>>> 6bd6b2feb8feeb8ba322f53f6afcd70c3c102838
   z-index: 999999;
   position: absolute;
   top: 20px;

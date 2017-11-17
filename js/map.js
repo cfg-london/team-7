@@ -1,12 +1,14 @@
 /*var map = new Datamap({
   element: document.getElementById("mapWrapper"),
   projection: 'mercator',
-  responsive: true,
+  responsive: false,
   fills: {
     defaultFill: "rgb(85,186,178)",
     includedCountry: "rgb(112,3,112)"
   },
-  data : {}
+  geographyConfig: {
+    popupOnHover: false
+  }
 });
 
 function addCountry(country){
@@ -18,8 +20,8 @@ function addCountry(country){
 }
 
 function sizeChange() {
-    d3.select("g").attr("transform", "scale(" + $("#mapWrapper").width()/1680 + ")");
-    $("svg").height($("#container").height());
+  d3.select("g").attr("transform", "scale(" + $("#mapWrapper").width()/1500 + ")");
+  $("svg").height(10000);
 }
 
 d3.select(window).on("resize", sizeChange);
@@ -32,6 +34,7 @@ $(document).ready(function(){
   addCountry("ESA");
   addCountry("SEN");
   addCountry("COL");
+<<<<<<< HEAD
   addCountry("AUS");
 });*/
 
@@ -49,4 +52,6 @@ $.getJSON(myGeoJSONPath,function(data){
         clickable: false,
         style: myCustomStyle
     }).addTo(map);
+=======
+>>>>>>> 6bd6b2feb8feeb8ba322f53f6afcd70c3c102838
 });

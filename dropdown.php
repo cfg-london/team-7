@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-
-<select name="indicator">
 <?php
 require_once "";
 $query = "SELECT indicator
@@ -13,5 +10,3 @@ echo $row["indicator"] . ’">’;
 echo $row["indicator"]
 echo ’</option >’;
 }
-? >
-</select >

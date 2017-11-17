@@ -9,21 +9,33 @@
   background-color: #333333;
 }
 
-#mapWrapper{
+#map{
   width: 80%;
-  height: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  vertical-align:top;
+  background-color: rgba(255,255,255,.5);
 }
 
-svg {
+svg{
+  display: block;
+}
+
+.logo{
+  z-index: 99999;
   position: absolute;
-  top:0;
-  left:0;
+  bottom: 0;
+  right: 0;
+  background-image: url('../img/Equal_Measures_Logo.png');
+  width: 223px;
+  height: 110px;
+  background-size: cover;
 }
 
-.indicators{
+.indicators,.ages{
+  z-index: 999999;
   position: absolute;
   top: 20px;
-  right: 20px;
   background-color: white;
   border: 1px solid black;
   border-radius: .3em;
@@ -32,13 +44,19 @@ svg {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
   transition: .375s;
 }
+.indicators{
+  right: 20px;
+}
+.ages{
+  left: 20px;
+}
 
-.indicator-drop{
+.indicator-drop,.ages-drop{
   position: absolute;
   right: 10px;
   height: 50px;
   line-height: 50px;
 }
-.indicator-expand{
+.indicator-expand,.ages-expand{
   height: 300px;
 }

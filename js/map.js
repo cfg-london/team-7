@@ -1,4 +1,4 @@
-var map = new Datamap({
+/*var map = new Datamap({
   element: document.getElementById("mapWrapper"),
   projection: 'mercator',
   responsive: true,
@@ -33,9 +33,9 @@ $(document).ready(function(){
   addCountry("SEN");
   addCountry("COL");
   addCountry("AUS");
-});
+});*/
 
-/*var myGeoJSONPath = 'json/world.json';
+var myGeoJSONPath = 'json/world.json';
 var myCustomStyle = {
     stroke: false,
     fill: true,
@@ -49,4 +49,4 @@ $.getJSON(myGeoJSONPath,function(data){
         clickable: false,
         style: myCustomStyle
     }).addTo(map);
-})*/
+});

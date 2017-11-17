@@ -9,18 +9,31 @@
   background-color: #333333;
 }
 
-#mapWrapper{
+#map{
   width: 80%;
-  height: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  vertical-align:top;
+  background-color: rgba(255,255,255,.5);
 }
 
-svg {
+svg{
+  display: block;
+}
+
+.logo{
+  z-index: 99999;
   position: absolute;
-  top:0;
-  left:0;
+  bottom: 0;
+  right: 0;
+  background-image: url('../img/Equal_Measures_Logo.png');
+  width: 223px;
+  height: 110px;
+  background-size: cover;
 }
 
 .indicators{
+  z-index: 999999;
   position: absolute;
   top: 20px;
   right: 20px;

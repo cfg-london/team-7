@@ -1,16 +1,32 @@
 <?php
-require("php/connection.php");
+require("connection.php");
 
 $tableName = $_POST['tableId'];
 $ageArr = $_POST['ageId[]'];
 $countryArr = $_POST['countryId[]'];
 
-$countryId = implode(',', $countryArr);
-$ageID = implode(',', $ageArr);
 
-$sql = "SELECT * FROM '$tableName' AS tb WHERE
-        tb.country IN ('$countryId')
-        AND tb.age IN ('$ageId')";
+for ($i = 0; $i < count($countryArr); $i++){
+    $countryArr[$i] = "'" . $countryArr[$i] . "'" ;
+}
+
+$countryId = implode(',', $countryArr);
+
+$sql = "SELECT Country";
+
+if (!$ageArr){
+  $sql .= ",";
+  for ($i = 0; $i < count($ageArr); $i++){
+    if( $i != count($ageArr) - 1 ) {
+      $sql .= "`" . $ageArr[$i] . '`, ';
+      continue;
+    }
+    $sql .= "`". $ageArr[$i] . '`';
+  }
+}
+
+$sql .= "FROM `$tableName` AS tb WHERE
+        tb.country IN ($countryId);";
 
 $result = $conn->query($sql);
 

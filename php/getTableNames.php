@@ -1,7 +1,7 @@
 <?php
-require("php/connection.php");
+require("connection.php");
 
-$sql = "USE equalmeasures; SHOW tables;";
+$sql = "SHOW tables;";
 $result = $conn->query($sql);
 
 $JSONTable = array();

@@ -92,7 +92,7 @@
 .confirmInput{
   z-index: 9999999;
   position: absolute;
-  bottom: 25px;
+  bottom: 2.5%;
   right: 0px;
   width: 100px;
   margin-right: 2.5%;
@@ -101,7 +101,7 @@
   color: white;
   font-family: Roboto;
   font-size: 1em;
-  background-color: black;
+  background-color: rgb(85,186,178);
   margin-top: 15px;
   line-height: 40px;
 }
@@ -161,4 +161,31 @@ input[type="checkbox"]{
 }
 .selectedCountry, .selectedAge{
   background-color: rgb(23,33,56);
+}
+
+.axis path, .axis line {
+ fill: none;
+ stroke: grey;
+ shape-rendering: crispEdges;
+ }
+.axis text {
+ font-size: 13px;
+ }
+.bar {
+ fill: rgb(112,3,112);
+ fill-opacity: 1;
+ }
+.bar:hover {
+ fill: rgb(85,186,178);
+ }
+svg text.label {
+ fill:white;
+ font: 20px;
+ font-weight: 400;
+ text-anchor: middle;
+}
+#chartID {
+ min-width: 531px;
+ padding: 10px ;
+ display: block ;
 }

@@ -15,6 +15,7 @@ for($i=0; $i<count($tuples); $i++) {
   $totalFields++;
   $field = strtolower(trim($tuples[$i]));
 
+
   if($i==0 || $i==1) {
     $fields[] = $field .' VARCHAR(255)';
     continue;
@@ -37,7 +38,7 @@ while( ($tuples = fgetcsv($file)) !== FALSE ) {
   for($i=0; $i<count($tuples); $i++){
     $fields[] ='\''.addslashes($tuples[$i]).'\'';
   }
-  $sql = "Insert into $tableName values(" . implode(', ', $fields) . ');';
+  $sql = "INSERT INTO $tableName values(" . implode(', ', $fields) . ');';
   echo $sql;
   $conn->query($sql);
 }

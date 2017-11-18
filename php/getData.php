@@ -15,7 +15,7 @@ $countryId = implode(',', $countryArr);
 $sql = "SELECT Country";
 
 if (!empty($ageArr)){
-  echo "excecuted";
+  
   $sql .= ",";
   for ($i = 0; $i < count($ageArr); $i++){
     if( $i != count($ageArr) - 1 ) {
@@ -28,7 +28,7 @@ if (!empty($ageArr)){
 
 $sql .= ", Total FROM `$tableName` AS tb WHERE
         tb.country IN ($countryId);";
-echo $sql;
+
 $result = $conn->query($sql);
 
 $JSONTable = array();

@@ -9,10 +9,10 @@ $tuples = fgetcsv($file);
 $tableName = pathinfo($fileName, PATHINFO_FILENAME);
 
 $attributes = array();
-$total_fields = 0;
+$totalFields = 0;
 
 for($i=0; $i<count($tuples); $i++) {
-  $total_fields++;
+  $totalFields++;
   $field = strtolower(trim($tuples[$i]));
 
   if($i==0 || $i==1) {
@@ -27,17 +27,18 @@ for($i=0; $i<count($tuples); $i++) {
   }
 }
 
-$sql = "CREATE TABLE $tableName (" . implode(', ', $fields) . ');';
+$sql = "CREATE TABLE $tableName (" . implode(', ', $fields) . ", PRIMARY KEY(country, survey));";
 echo $sql;
-
 $conn->query($sql);
-$conn->close();
-/*
+
 while( ($tuples = fgetcsv($file)) !== FALSE ) {
   $fields = array();
 
-  for($i=0; $i<$total_fields; $i++){
-    $fields[] =
+  for($i=0; $i<count($tuples); $i++){
+    $fields[] ='\''.addslashes($tuples[$i]).'\'';
   }
+  $sql = "Insert into $tableName values(" . implode(', ', $fields) . ');';
+  echo $sql;
+  $conn->query($sql);
 }
-*/
+$conn->close();

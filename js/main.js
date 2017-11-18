@@ -316,8 +316,7 @@ app.controller("myCtrl", ['$scope', '$http', function ($scope, $http) {
        data: data
       }
 
-       $http(req).then(function(data){info = data.data; console.log(info); setTimeout(listener, 100)}, function(){});
-
+       $http(req).then(function(data){info = data.data; dynamicChart(); setTimeout(listener, 100)}, function(){});
     }
  }
 }]);
@@ -366,7 +365,6 @@ $(document).ready(function(){
     });
     if(panel == 4){
       $(this).fadeOut();
-      dynamicChart();
     }
     $('.goBack').fadeIn();
   });
@@ -464,10 +462,36 @@ var dummyData = {
   }]
 };
 
+
+//TODO finish reformatting the json object to be in the same structure as the dummyData above
+function reFormat(info){
+  var countries = [];
+  var data = {}
+
+  for(var i = 0; i < info.length; i++){
+    if(jQuery.inArray(info[i].Country, countries) == -1){
+      countries.push(info[i].Country);
+    }
+  }
+
+  $(countries).each(function(){
+    for(var i = 0; i < info.length; i++){
+      var country = info[i].Country;
+      console.log(country);
+      if(country == $(this)){
+        data[country] = "test";
+      }
+    }
+  });
+
+  console.log(data);
+  return info;
+}
+
 function dynamicChart(){
     var country = dummyData.TestCountry;
 
-    console.log(dummyData);
+    console.log(info);
 
     var chartData = [];
 

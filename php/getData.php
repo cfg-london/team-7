@@ -11,19 +11,19 @@ for ($i = 0; $i < count($countryArr); $i++){
 
 $countryId = implode(',', $countryArr);
 
-$sql = "SELECT Country, SUBSTRING(Survey, 1, 4)";
+$sql = "SELECT Country, SUBSTRING(Survey, 1, 4) AS Year";
 
 if (!empty($ageArr)){
   $sql .= ",";
   for ($i = 0; $i < count($ageArr); $i++){
     if( $i != count($ageArr) - 1 ) {
-      $sql .= "`" . $ageArr[$i] . '`, ';
+      $sql .= "`" . $ageArr[$i] . '`AS Age, ';
       continue;
     }
     $sql .= "`". $ageArr[$i] . '`';
   }
 }else{
-  $sql .= ", Total";
+  $sql .= ", Total AS Age";
 }
 
 $sql .= "FROM `$tableName` AS tb WHERE

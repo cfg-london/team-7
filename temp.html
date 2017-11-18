@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <!-- I recommend you host this file on your own, since this will change without warning -->
+  <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+  <h2>Datamaps Playground</h2>
+  <p><a href="http://datamaps.github.io/">DataMaps Project Homepage</a></p>
+  <div id="container1" style="position: relative; width: 80%; max-height: 450px;"></div>
+
+
+     <script>
+
+
+     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+
+     <!-- Horizontal Stripe pattern -->
+     <defs>
+     <pattern id="horizontal-stripe"
+     width="4" height="4"
+     patternUnits="userSpaceOnUse">
+
+    <line x1="0" y1="2" x2="4" y2="2" stroke="green" />
+    </pattern>
+    </defs>
+    </svg>
+       //basic map config with custom fills, mercator projection
+      var map = new Datamap({
+        scope: 'world',
+        element: document.getElementById('container1'),
+        projection: 'mercator',
+        height: 500,
+
+        fills: {
+          horizontalStripe: 'url(#horizontal-stripe)'
+          defaultFill: '#f0af0a',
+          lt50: 'rgba(0,244,244,0.9)',
+          gt50: 'red'
+
+        },
+
+        data: {
+          COL: {fillKey: 'lt50' },
+          IND: {fillKey: 'lt50' },
+          IDN: {fillKey: 'lt50' },
+          KEN: {fillKey: 'gt50' },
+          SEN: {fillKey: 'defaultfill'},
+          ESA: {fillKey: 'horizontalStripe' },
+
+        }
+      })
+
+
+
+
+
+
+     </script>
+</body>

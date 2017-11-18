@@ -1,0 +1,55 @@
+$(window).resize(function(){
+
+});
+
+var basic = new Datamap({
+  element: document.getElementById("mapWrapper"),
+  element: document.getElementById("bubbles"),
+  projection: 'mercator',
+  responsive: true,
+  fills: {
+    defaultFill: "#333333"
+  }
+
+  geographyConfig: {
+    popupOnHover: false,
+    highlightOnHover: false
+  },
+  fills: {
+    defaultFill: '#ABDDA4',
+    USA: 'blue',
+    RUS: 'red'
+  }
+  var countries = [COL,IND,IDN,KEN,SEN]
+  for (i = 0; i < countries.length; i++ ){}
+  if (thisyear < lastyear){
+
+  var country = ''
+}
+  else if(thisyear > lastyear)
+}
+});
+basic.bubbles([
+  {
+    name: 'Positive shift',
+    radius: 10,
+    centered: country ,
+    country: 'USA',
+    yeild: 0,
+    fillKey: 'USA',
+    date: '1954-03-01'
+  },{
+    name: 'Negative shift',
+    radius: 10,
+    centered: 'BRA',
+    country: 'USA',
+    yeild: 0,
+    fillKey: 'USA',
+    date: '1954-03-01'
+  },
+], {
+  popupTemplate: function(geo, data) {
+    return '<div class="hoverinfo">Yield:' + data.yeild + '
+Exploded on ' + data.date + ' by the '  + data.country + ''
+  }
+});

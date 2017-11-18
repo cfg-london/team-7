@@ -5,7 +5,7 @@
 
   if ( isset($_SESSION['appuser']) )
   {
-    header('Location: ../admin.php');
+    header('Location: admin.php');
   }
   else if ( isset($_SESSION['apperror']) )
   {

@@ -43,4 +43,4 @@ while( ($tuples = fgetcsv($file)) !== FALSE ) {
   $conn->query($sql);
 }
 $conn->close();
-header('Location: ../admin.php');
+header('Location: admin.php');

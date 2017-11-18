@@ -28,10 +28,10 @@ elseif( isset($_SESSION['add_error']) ) {
 
 
         <div class="form">
-          <form name="IndicatorForm" action="php/newTheme.php" method="post" >
+          <form name="IndicatorForm" action="newTheme.php" method="post" >
             <p>Enter filepath for csv:</p>
             <input type="text" name="filepath"  value="" required>
-            <input type="submit" value="Submit" onsubmit="php/newTheme.php">
+            <input type="submit" value="Submit" onsubmit="newTheme.php">
 
 
           </form>

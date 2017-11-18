@@ -12,7 +12,7 @@ if ( isset($_POST["username"]) && isset($_POST["password"]) )
   // TO DO: Want to add database capability
   if ($username === "UserAdmin" && $password === "EqualMeasures2030" ){
     $_SESSION["appuser"] = $username;
-      header("Location: ../admin.php");
+      header("Location: admin.php");
   } else {
           $error = "Invalid Log in - Please try again.";
           $_SESSION["apperror"] = $error ;

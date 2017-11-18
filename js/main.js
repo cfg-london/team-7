@@ -405,6 +405,8 @@ function getIndicators(){
     type: 'post',
     success : function(data){
       indicators = JSON.parse(data);
+      console.log(indicators);
+      
       $(indicators).each(function(){
         i.push({"i":indicators[0].Tables_in_equalmeasures});
       });

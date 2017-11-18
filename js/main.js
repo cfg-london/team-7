@@ -1,3 +1,41 @@
+var map = new Datamap({
+  element: document.getElementById("mapWrapper"),
+  projection: 'mercator',
+  responsive: false,
+  fills: {
+    defaultFill: "rgb(85,186,178)",
+    includedCountry: "rgb(112,3,112)",
+    def: "rgb(85,186,178)"
+  },
+  geographyConfig: {
+    popupOnHover: false,
+    highlightOnHover: false
+  }
+});
+
+function addCountry(country){
+  var a = country;
+  var obj = {};
+  obj[a] = {fillKey : "includedCountry"};
+  console.log(obj);
+  map.updateChoropleth(obj);
+}
+
+function removeCountry(country){
+  var a = country;
+  var obj = {};
+  obj[a] = {fillKey : "def"};
+  console.log(obj);
+  map.updateChoropleth(obj);
+}
+
+function sizeChange() {
+  d3.select("g").attr("transform", "scale(" + $("#mapWrapper").width()/1200+ ")");
+  $("svg").height(10000);
+}
+
+d3.select(window).on("resize", sizeChange);
+
 var app = angular.module("app", []);
 app.controller("myCtrl", function($scope) {
   $scope.mockIndicators = [
@@ -16,8 +54,14 @@ app.controller("myCtrl", function($scope) {
   ];
 });
 
+var pairs = {
+  Kenya:"KEN",
+  Indonesia:"IDN"
+}
+
 $(document).ready(function(){
   listener();
+  sizeChange();
 
   $(".indicatorSearch").keyup(function(){
     listener();
@@ -61,15 +105,18 @@ $(document).ready(function(){
 
   var countries = []
   $('.countryWrapper').click(function(){
+    var country = $(this).html();
     if(!$(this).hasClass('selectedCountry')){
-      countries.push($(this).html());
+      countries.push(country);
       $(this).addClass('selectedCountry');
+      addCountry(pairs[country]);
     }else{
       $(this).removeClass('selectedCountry');
-      var index = countries.indexOf($(this).html());
+      var index = countries.indexOf(country);
       if (index >= 0) {
         countries.splice( index, 1 );
       }
+      removeCountry(pairs[country]);
     }
   });
 

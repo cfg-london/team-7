@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `demand for family planning satisfied by modern methods`
 --
 
-DROP TABLE IF EXISTS `demand for family planning satisfied by modern methods`;
 CREATE TABLE IF NOT EXISTS `demand for family planning satisfied by modern methods` (
   `Country` varchar(255) NOT NULL,
   `Survey` varchar(255) NOT NULL,
@@ -75,7 +74,6 @@ INSERT INTO `demand for family planning satisfied by modern methods` (`Country`,
 -- Table structure for table `married women currently using any method of contraception`
 --
 
-DROP TABLE IF EXISTS `married women currently using any method of contraception`;
 CREATE TABLE IF NOT EXISTS `married women currently using any method of contraception` (
   `Country` varchar(255) NOT NULL,
   `Survey` varchar(255) NOT NULL,
@@ -131,7 +129,6 @@ INSERT INTO `married women currently using any method of contraception` (`Countr
 -- Table structure for table `married women currently using any modern method of contraception`
 --
 
-DROP TABLE IF EXISTS `married women currently using any modern method of contraception`;
 CREATE TABLE IF NOT EXISTS `married women currently using any modern method of contraception` (
   `Country` varchar(255) NOT NULL,
   `Survey` varchar(255) NOT NULL,

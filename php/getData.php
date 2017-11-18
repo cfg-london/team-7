@@ -1,10 +1,9 @@
 <?php
 require("connection.php");
 
-
 $tableName = $_POST['tableId'];
-$ageArr = $_POST['ageId[]'];
-$countryArr = $_POST['countryId[]'];
+$ageArr = $_POST['ageId'];
+$countryArr = $_POST['countryId'];
 
 for ($i = 0; $i < count($countryArr); $i++){
     $countryArr[$i] = "'" . $countryArr[$i] . "'" ;
@@ -12,10 +11,9 @@ for ($i = 0; $i < count($countryArr); $i++){
 
 $countryId = implode(',', $countryArr);
 
-$sql = "SELECT Country";
+$sql = "SELECT Country, SUBSTRING(Survey, 1, 4)";
 
 if (!empty($ageArr)){
-  echo "excecuted";
   $sql .= ",";
   for ($i = 0; $i < count($ageArr); $i++){
     if( $i != count($ageArr) - 1 ) {
@@ -24,11 +22,13 @@ if (!empty($ageArr)){
     }
     $sql .= "`". $ageArr[$i] . '`';
   }
+}else{
+  $sql .= ", Total";
 }
 
-$sql .= ", Total FROM `$tableName` AS tb WHERE
-        tb.country IN ($countryId);";
-echo $sql;
+$sql .= "FROM `$tableName` AS tb WHERE
+      tb.country IN ($countryId);";
+
 $result = $conn->query($sql);
 
 $JSONTable = array();

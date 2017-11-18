@@ -5,7 +5,7 @@
 
   if ( isset($_SESSION['appuser']) )
   {
-    header('Location: index.php');
+    header('Location: ../admin.php');
   }
   else if ( isset($_SESSION['apperror']) )
   {
@@ -28,7 +28,7 @@
 
   <body>
 
-<div class="errorHolder"><?php echo $error ?></div>
+
       <div class="loginContent" id="login">
 
         <div class="panel-header"><h1>Admin User - Login</h1></div>

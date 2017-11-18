@@ -13,6 +13,7 @@ $countryId = implode(',', $countryArr);
 
 $sql = "SELECT Country, SUBSTRING(Survey, 1, 4) AS Year";
 
+// Get all values of age checked and add to SQL query
 if (!empty($ageArr)){
   $sql .= ",";
   for ($i = 0; $i < count($ageArr); $i++){
@@ -23,7 +24,8 @@ if (!empty($ageArr)){
     $sql .= "`". $ageArr[$i] . '`';
   }
 }else{
-  $sql .= ", Total AS Age";
+  // If no ages selected, get total
+  $sql .= ", Total";
 }
 
 $sql .= "FROM `$tableName` AS tb WHERE

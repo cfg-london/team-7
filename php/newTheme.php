@@ -1,7 +1,7 @@
 <?php
 require("connection.php");
-
-$fileName = "testCSV.csv";
+session_start();
+$fileName = basename(htmlentities($_POST["filepath"])) ;
 
 $file = fopen($fileName, 'r');
 $tuples = fgetcsv($file);
@@ -29,7 +29,7 @@ for($i=0; $i<count($tuples); $i++) {
 }
 
 $sql = "CREATE TABLE $tableName (" . implode(', ', $fields) . ", PRIMARY KEY(country, survey));";
-echo $sql;
+
 $conn->query($sql);
 
 while( ($tuples = fgetcsv($file)) !== FALSE ) {
@@ -39,7 +39,8 @@ while( ($tuples = fgetcsv($file)) !== FALSE ) {
     $fields[] ='\''.addslashes($tuples[$i]).'\'';
   }
   $sql = "INSERT INTO $tableName values(" . implode(', ', $fields) . ');';
-  echo $sql;
+
   $conn->query($sql);
 }
 $conn->close();
+header('Location: ../admin.php');

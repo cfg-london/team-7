@@ -48,6 +48,7 @@ svg{
   width: 500px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: .375s;
+  overflow: hidden;
 }
 .config h1{
   font-family: Roboto;
@@ -93,23 +94,54 @@ svg{
   margin-bottom: 10px;
 }
 .confirmInput{
+  z-index: 9999999;
   position: absolute;
-  bottom: 10px;
-  right: 2.5%;
-  width: 40%;
+  bottom: 25px;
+  right: 0px;
+  width: 100px;
   margin-right: 2.5%;
   height: 40px;
   text-align: center;
   color: white;
   font-family: Roboto;
-  font-size: 1.5em;
+  font-size: 1em;
   background-color: black;
   margin-top: 15px;
   line-height: 40px;
 }
+.goBack{
+  z-index: 9999999;
+  position: absolute;
+  left: 4%;
+  bottom: 2.5%;
+  color: black;
+  font-family: Roboto;
+  cursor: pointer;
+  width: 100px;
+}
 .panel{
   position: absolute;
-  left: 2.5%;
   overflow: hidden;
+  width: 100%;
+}
+.countryWrapper{
   width: 95%;
+  margin-left: 2.5%;
+  height: auto;
+  border-radius: .3em;
+  margin-top: 10px;
+  line-height: 40px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: white;
+  background-color: rgb(7, 80, 155);
+  cursor: pointer;
+  font-family: Roboto;
+  font-weight: 300;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: .2s;
+}
+input[type="checkbox"]{
+  display: none;
 }

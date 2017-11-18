@@ -19,15 +19,52 @@ app.controller("myCtrl", function($scope) {
 $(document).ready(function(){
   listener();
 
-  $(".indicatorSearch").onKeyUp(function(){
+  $(".indicatorSearch").keyup(function(){
     listener();
   });
 
   var increment = 0;
   $('.panel').each(function(){
     $(this).css('left',increment);
-    increment+=350;
+    increment+=500;
   });
+
+  var panel = 1;
+
+  $('.confirmInput').click(function(){
+    panel++;
+    $('.panel').each(function(){
+      var curPos = parseInt($(this).css('left'));
+      $(this).animate({
+        'left': curPos - 500
+      }, 300);
+    });
+    if(panel == 3){
+      $(this).fadeOut();
+    }
+    $('.goBack').fadeIn();
+  });
+
+  $('.goBack').click(function(){
+    panel--;
+    $('.panel').each(function(){
+      var curPos = parseInt($(this).css('left'));
+      $(this).animate({
+        'left': curPos + 500
+      }, 300);
+    });
+    if(panel == 1){
+      $(this).fadeOut();
+    }
+    $('.confirmInput').fadeIn();
+  });
+
+  var countries = []
+  $('.countryWrapper').click(function(){
+    $(this).find('input').click();
+    countries.push($('.country').html());
+  });
+
 });
 
 function listener(){

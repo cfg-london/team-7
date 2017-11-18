@@ -17,18 +17,22 @@
     </div>
     <div class="config">
       <div class="indicators panel active-panel">
-        <h1>Choose an indicator</h1>
+        <h1>Choose An Indicator</h1>
         <input class="indicatorSearch" type="text" ng-model="searchText" onkeydown="listener()" placeholder="Search"></input>
         <div class="allIndicators">
           <div class="indicatorValue" ng-repeat="indicator in mockIndicators | filter:searchText">{{indicator.name}}</div>
         </div>
       </div>
       <div class="countries panel">
-
+        <h1>Selecty Countries</h1>
+        <div class="allCountries">
+          <div ng-repeat="country in mockCountries" class="countryWrapper"><input type="checkbox" name="countries" class="countryValue" value="{{country.name}}"></input><span class="country">{{country.name}}</span></div>
+        </div>
       </div>
       <div class="age-group panel">
 
       </div>
+      <div class="goBack">&#8592; Back</div>
       <div class="confirmInput">Select</div>
     </div>
   </div>

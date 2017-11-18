@@ -2,10 +2,16 @@
 require("php/connection.php");
 
 $tableName = $_POST['tableId'];
-$ageRange = $_POST['ageId[]'];
-$countrySelected = $_POST['countryId[]'];
+$ageArr = $_POST['ageId[]'];
+$countryArr = $_POST['countryId[]'];
 
-$sql = "SELECT * FROM ";
+$countryId = implode(',', $countryArr);
+$ageID = implode(',', $ageArr);
+
+$sql = "SELECT * FROM '$tableName' AS tb WHERE
+        tb.country IN ('$countryId')
+        AND tb.age IN ('$ageId')";
+
 $result = $conn->query($sql);
 
 $JSONTable = array();

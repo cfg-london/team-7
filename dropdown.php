@@ -10,3 +10,4 @@ echo $row["indicator"] . ’">’;
 echo $row["indicator"]
 echo ’</option >’;
 }
+?>

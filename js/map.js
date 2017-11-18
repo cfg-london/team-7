@@ -7,7 +7,8 @@ var map = new Datamap({
     includedCountry: "rgb(112,3,112)"
   },
   geographyConfig: {
-    popupOnHover: false
+    popupOnHover: false,
+    highlightOnHover: false
   }
 });
 
@@ -20,7 +21,7 @@ function addCountry(country){
 }
 
 function sizeChange() {
-  d3.select("g").attr("transform", "scale(" + $("#mapWrapper").width()/1500 + ")");
+  d3.select("g").attr("transform", "scale(" + $("#mapWrapper").width()/1200+ ")");
   $("svg").height(10000);
 }
 

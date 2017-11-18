@@ -5,22 +5,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-  <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
   <script src="js/datamap.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
   <script src="js/main.js"></script>
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body ng-app="app" ng-controller="myCtrl">
   <div id="wrapper">
-    <div class="logo">
-    </div>
-    <div class="indicators">
-
-    </div>
     <div id="mapWrapper">
 
+    </div>
+    <div class="config">
+      <div class="indicators panel active-panel">
+        <h1>Choose an indicator</h1>
+        <input class="indicatorSearch" type="text" ng-model="searchText" onkeydown="listener()" placeholder="Search"></input>
+        <div class="allIndicators">
+          <div class="indicatorValue" ng-repeat="indicator in mockIndicators | filter:searchText">{{indicator.name}}</div>
+        </div>
+      </div>
+      <div class="countries panel">
+
+      </div>
+      <div class="age-group panel">
+
+      </div>
+      <div class="confirmInput">Select</div>
     </div>
   </div>
   <script src="js/map.js"></script>

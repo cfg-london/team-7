@@ -35,5 +35,4 @@ $(document).ready(function(){
   addCountry("ESA");
   addCountry("SEN");
   addCountry("COL");
-  addCountry("AUS");
 });

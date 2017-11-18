@@ -61,8 +61,16 @@ $(document).ready(function(){
 
   var countries = []
   $('.countryWrapper').click(function(){
-    $(this).find('input').click();
-    countries.push($('.country').html());
+    if(!$(this).hasClass('selectedCountry')){
+      countries.push($(this).html());
+      $(this).addClass('selectedCountry');
+    }else{
+      $(this).removeClass('selectedCountry');
+      var index = countries.indexOf($(this).html());
+      if (index >= 0) {
+        countries.splice( index, 1 );
+      }
+    }
   });
 
 });

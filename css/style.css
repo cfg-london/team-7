@@ -141,3 +141,6 @@
 input[type="checkbox"]{
   margin-right: 10px;
 }
+.selectedCountry{
+  background-color: rgb(23,33,56);
+}

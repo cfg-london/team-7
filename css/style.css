@@ -141,6 +141,24 @@
 input[type="checkbox"]{
   margin-right: 10px;
 }
-.selectedCountry{
+.ageGroupWrapper{
+  width: 95%;
+  margin-left: 2.5%;
+  height: auto;
+  border-radius: .3em;
+  margin-top: 10px;
+  line-height: 40px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: white;
+  background-color: rgb(7, 80, 155);
+  cursor: pointer;
+  font-family: Roboto;
+  font-weight: 300;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: .2s;
+}
+.selectedCountry, .selectedAge{
   background-color: rgb(23,33,56);
 }

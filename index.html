@@ -20,17 +20,23 @@
         <h1>Choose An Indicator</h1>
         <input class="indicatorSearch" type="text" ng-model="searchText" onkeydown="listener()" placeholder="Search"></input>
         <div class="allIndicators">
-          <div class="indicatorValue" ng-repeat="indicator in mockIndicators | filter:searchText">{{indicator.name}}</div>
+          <div class="indicatorValue" ng-repeat="indicator in indicators | filter:searchText">{{indicator.i}}</div>
         </div>
       </div>
       <div class="countries panel">
-        <h1>Selecty Countries</h1>
+        <h1>Select Countries</h1>
         <div class="allCountries">
           <div ng-repeat="country in mockCountries" class="countryWrapper">{{country.name}}</div>
         </div>
       </div>
       <div class="ageGroup panel">
-
+        <h1>Select Age Groups</h1>
+        <div class="allCountries">
+          <div class="ageGroupWrapper">15-19</div>
+          <div class="ageGroupWrapper">20-29</div>
+          <div class="ageGroupWrapper">30-39</div>
+          <div class="ageGroupWrapper">40-49</div>
+        </div>
       </div>
       <div class="goBack">&#8592; Back</div>
       <div class="confirmInput">Select</div>

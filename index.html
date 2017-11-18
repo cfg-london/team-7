@@ -16,7 +16,7 @@
     </div>
     <div id="map">
     <div class="config">
-      <div class="indicators panel active-panel">
+      <div class="indicators panel active-panel" ng-controller="indicatorService">
         <h1>Choose An Indicator</h1>
         <input class="indicatorSearch" type="text" ng-model="searchText" onkeydown="listener()" placeholder="Search"></input>
         <div class="allIndicators">
@@ -26,7 +26,7 @@
       <div class="countries panel">
         <h1>Select Countries</h1>
         <div class="allCountries">
-          <div ng-repeat="country in mockCountries" class="countryWrapper">{{country.name}}</div>
+          <div ng-repeat="country in countries" class="countryWrapper">{{country.Country}}</div>
         </div>
       </div>
       <div class="ageGroup panel">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="goBack">&#8592; Back</div>
-      <div class="confirmInput">Select</div>
+      <div class="confirmInput" ng-click="next()">Select</div>
     </div>
   </div>
   <script src="js/main.js"></script>

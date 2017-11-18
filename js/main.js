@@ -282,12 +282,39 @@ function sizeChange() {
 d3.select(window).on("resize", sizeChange);
 
 var app = angular.module("app", []);
-app.controller("myCtrl", function($scope) {
+app.controller("myCtrl", ['$scope', '$http', function ($scope, $http) {
+  $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
   $scope.indicators = getIndicators();
-  $scope.mockCountries = [];
+  $scope.countries = [];
+
+  $scope.next = function(){
+    var data = $.param({
+                tableId: indicator
+            });
+
+    var req = {
+     method: 'POST',
+     url: 'php/getCountries.php',
+     data: data
+   }
+
+    $http(req).then(function(data){$scope.countries = data.data; console.log(data.data); setTimeout(listeners, 100)}, function(){});
+  }
+}]);
+
+app.controller("indicatorService", function($scope, $http) {
+  $http({
+   method: 'POST',
+   url: 'php/getTableNames.php'
+  }).then(function () {
+    setTimeout(listener,200);
+  }, function (response) {
+    alert("Error: " + response);
+  });
 });
 
-var indicator;
+var indicator = null;
 var increment = 0;
 var panel = 1;
 var countries = [];
@@ -307,6 +334,9 @@ $(document).ready(function(){
   });
 
   $('.confirmInput').click(function(){
+    if(panel = 1){
+      if(indicator == null) return;
+    }
     panel++;
     $('.panel').each(function(){
       var curPos = parseInt($(this).css('left'));
@@ -383,8 +413,12 @@ function getIndicators(){
 
 function listener(){
   $(".indicatorValue").click(function(){
-    indicator = $(this).html();
     $(".selectedIndicator").removeClass("selectedIndicator");
-    $(this).addClass("selectedIndicator");
+    if (indicator == $(this).html()){
+      indicator = null;
+    }else{
+      indicator = $(this).html();
+      $(this).addClass("selectedIndicator");
+    }
   });
 }

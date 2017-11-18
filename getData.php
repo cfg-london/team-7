@@ -12,9 +12,10 @@ for ($i = 0; $i < count($countryArr); $i++){
 
 $countryId = implode(',', $countryArr);
 
-$sql = "SELECT Country,";
+$sql = "SELECT Country";
 
 if (!$ageArr){
+  $sql .= ",";
   for ($i = 0; $i < count($ageArr); $i++){
     if( $i != count($ageArr) - 1 ) {
       $sql .= "`" . $ageArr[$i] . '`, ';

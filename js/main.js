@@ -283,13 +283,6 @@ d3.select(window).on("resize", sizeChange);
 
 var app = angular.module("app", []);
 app.controller("myCtrl", function($scope) {
-  /*$scope.mockIndicators = [
-    {name: "testname"},
-    {name: "a name"},
-    {name: "some name"},
-    {name: "test"},
-    {name: "testname"}
-  ];*/
   $scope.indicators = getIndicators();
   $scope.mockCountries = [];
 });

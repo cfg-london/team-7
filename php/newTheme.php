@@ -1,7 +1,7 @@
 <?php
 require("connection.php");
-
-$fileName = "testCSV.csv";
+session_start();
+$fileName = basename(htmlentities($_POST["filepath"])) ;
 
 $file = fopen($fileName, 'r');
 $tuples = fgetcsv($file);

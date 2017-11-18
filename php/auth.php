@@ -8,8 +8,9 @@ if ( isset($_POST["username"]) && isset($_POST["password"]) )
   $username = htmlentities($_POST["username"]) ;
   $password = htmlentities($_POST["password"]) ;
 
-  //call the validateUser function here
-  if ($username === "User" && $password === "Password" ){
+  // Checks entered info and confirms authorised user.
+  // TO DO: Want to add database capability
+  if ($username === "UserAdmin" && $password === "EqualMeasures2030" ){
     $_SESSION["appuser"] = $username;
       header("Location: admin.php");
   } else {
@@ -20,7 +21,6 @@ if ( isset($_POST["username"]) && isset($_POST["password"]) )
 }
 else
 {
-  //Add echo if username and password not set here
   header("Location: login.php") ;
   echo "Invalid Log in - Please try again.";
 
